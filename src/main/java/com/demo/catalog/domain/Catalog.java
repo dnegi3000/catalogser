@@ -48,12 +48,12 @@ public class Catalog implements Serializable {
 	public Catalog(){
 		
 	}
-	public Catalog(String name, String description,String longDescription){
+	public Catalog(String name, String description,String longDescription,String pId){
 		this.name = name ;
 		this.description = description;
 		this.longDescription = longDescription;
-		
-				
+		this.id = pId;
+					
 	}
 	
 	

@@ -1,5 +1,7 @@
 package com.demo.catalog.controller;
 
+import javax.persistence.EntityExistsException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,17 +33,27 @@ public class CatalogController {
 	
 	@RequestMapping(value = "/createCatalog", method = RequestMethod.POST)
 	@CrossOrigin(origins="*",allowedHeaders="*")
-    public void handleRequestCreateProuct(@RequestParam(name = "name") String pDisplayName,
+    public Catalog handleRequestCreateProuct(@RequestParam(name = "name") String pDisplayName,
 										  @RequestParam(name = "description") String pDescription,
-										  @RequestParam(name = "longDescription") String pLongDescription) {
+										  @RequestParam(name = "longDescription") String pLongDescription,
+										  @RequestParam(name = "id" ) String pId ) {
 		log.info("Inside /createCatalog");
 		log.info("Param value: name -->" + pDisplayName);
 		log.info("Param value: description -->" + pDescription);
 		log.info("Param value: longDescription -->" + pLongDescription);
-		catalogService.getCatalog("id");
+		Catalog catalog = catalogService.getCatalog(pId);
+		Catalog newCatalog = null; 
+		if ( catalog != null )
+		{
+			throw new EntityExistsException("Entity of type requested with same id already exists");
+			
+		}else {
 		
-		Catalog catalog = new Catalog(pDisplayName, pDescription, pLongDescription);
-		catalogService.createCatalog(catalog);
+			newCatalog = new Catalog(pDisplayName, pDescription, pLongDescription,pId);
+		return catalogService.createCatalog(newCatalog);
+		}
+		
+		
 	}
 	
 	
