@@ -18,7 +18,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 
 @Document 
-public class Category implements Serializable {
+public class Category   implements Serializable {
 
 	/**
 	 * 
