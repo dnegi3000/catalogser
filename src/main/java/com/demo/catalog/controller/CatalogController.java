@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.demo.catalog.domain.Catalog;
 import com.demo.catalog.domain.Category;
 import com.demo.catalog.service.CatalogService;
+import com.demo.catalog.service.CategoryService;
 
 @RestController
 public class CatalogController {
@@ -28,7 +29,14 @@ public class CatalogController {
 		this.catalogService = pCatService;
 	}
 
-	
+	private CategoryService categoryService;
+
+	@Autowired
+	public void setCategoryService(CategoryService pCategoryService) {
+
+		this.categoryService = pCategoryService;
+	}
+
 	
 	
 	@RequestMapping(value = "/createCatalog", method = RequestMethod.POST)
@@ -57,12 +65,28 @@ public class CatalogController {
 	}
 	
 	
-	//@RequestMapping(value = "/createCategories", method = RequestMethod.POST)
-	public void handleRequesrCreateCategories(@RequestParam (name = "catDispalyName") String catDisplayName,
-											  @RequestParam (name="catDescrtion") String catDescription){
+	@RequestMapping(value = "/createCategory", method = RequestMethod.POST)
+	@CrossOrigin(origins="*",allowedHeaders="*")
+	public Category handleRequesrCreateCategories(@RequestParam (name="id") String pId,
+											  @RequestParam (name="name") String pName,
+											  @RequestParam (name="site") String site,
+											  @RequestParam (name="country")String pCountry,
+											  @RequestParam (name="longDescription") String pLongDescrition,
+											  @RequestParam (name="description") String pDescription) {
 		
 		log.info("Inside /createCategories");
-		Category cat = new Category();
+		
+		Category category = categoryService.getCategory(pId);
+		Category newCategory = null; 
+		if ( category != null )
+		{
+			throw new EntityExistsException("Entity of type requested with same id already exists");
+			
+		}else {
+		
+			newCategory = new Category(pId,pName,site,pCountry, pLongDescrition,pDescription);
+		return categoryService.createCategory(newCategory);
+		}
 		
 	}
 

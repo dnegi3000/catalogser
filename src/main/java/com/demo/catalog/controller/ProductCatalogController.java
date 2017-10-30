@@ -36,16 +36,6 @@ public class ProductCatalogController {
 	}
 	
 	
-	@RequestMapping(value = "/createCategories", method = RequestMethod.POST)
-	public void handleRequesrCreateCategories(
-											@RequestParam (name = "catDispalyName") String catDisplayName,
-											@RequestParam (name="catDescrtion") String catDescription){
-		
-		log.info("Inside /createCategories");
-		Category cat = new Category();
-		
-	}
-
 }
 
 

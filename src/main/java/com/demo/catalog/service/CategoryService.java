@@ -20,14 +20,14 @@ public class CategoryService {
 	 * 
 	 * @return
 	 */
-     public Category  getCatalog(String prodId){
+     public Category  getCategory(String categoryId){
     	 
-    	return  categoryRepository.findOne(prodId);
+    	return  categoryRepository.findOne(categoryId);
     	 
      }
 	
-     public Category   createProduct(Category catalog){
+     public Category   createCategory(Category category){
     	 
-     return categoryRepository.save(catalog);
+     return categoryRepository.save(category);
      }	
 }
