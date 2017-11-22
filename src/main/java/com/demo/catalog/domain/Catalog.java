@@ -124,7 +124,7 @@ public class Catalog implements Serializable {
 	 * 
 	 * @return the childCatagories
 	 */
-	public Category getChildCatagories() {
+	public List<Category> getChildCatagories() {
 		return childCatagories;
 	}
 
@@ -174,7 +174,7 @@ public class Catalog implements Serializable {
 	 * @param childCatagories
 	 *            the childCatagories to set
 	 */
-	public void setChildCatagories(Category childCatagories) {
+	public void setChildCatagories(List<Category> childCatagories) {
 		this.childCatagories = childCatagories;
 	}
 	
@@ -196,7 +196,7 @@ public class Catalog implements Serializable {
 
 	private Boolean masterCatalog;
 
-	private Category childCatagories;
+	private List<Category> childCatagories;
 	
 	private String description;
 	
