@@ -24,7 +24,7 @@ public class ProductService {
 	 */
      public Product  getProduct(Long prodId){
     	 
-    	return  prodRepository.findOne(prodId);
+    	return  prodRepository.findOneById(prodId);
     	 
      }
 	

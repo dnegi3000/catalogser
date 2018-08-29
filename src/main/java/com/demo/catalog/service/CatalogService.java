@@ -22,7 +22,7 @@ public class CatalogService {
 	 */
      public Catalog  getCatalog(String prodId){
     	 
-    	return  catalogRepository.findOne(prodId);
+    	return  catalogRepository.findOneById(prodId);
     	 
      }
 	
@@ -30,4 +30,6 @@ public class CatalogService {
     	 
      return catalogRepository.save(catalog);
      }	
+     
+    
 }

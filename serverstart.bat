@@ -1,5 +1,5 @@
 set PATH=%JAVA_HOME%\bin;%PATH%
-#set JAVA_HOME=D:\common_sw\java\jdk1.8.0_131
+REM set JAVA_HOME=D:\common_sw\java\jdk1.8.0_131
 echo ===============================================================================
 echo =====================================================================================
 java -version 

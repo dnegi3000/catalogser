@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import com.demo.catalog.domain.Product;
 
 
-public interface ProductRepository extends  CrudRepository<Product,Long> {
+public interface ProductRepository extends  DefaultCrudRepository<Product,Long> {
 
 }
