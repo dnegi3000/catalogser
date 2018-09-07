@@ -1,18 +1,12 @@
 package com.demo.catalog.domain;
 
 import java.io.Serializable;
-import java.math.BigInteger;
-import java.util.List;
-import java.util.Map;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.demo.catalog.controller.ProductCatalogController;
 
 @Document	
 public class Product implements Serializable {
@@ -22,11 +16,10 @@ public class Product implements Serializable {
 	 */
    private static final long serialVersionUID = 2930079164473890452L;
    
-	private static final Logger log = LoggerFactory.getLogger(ProductCatalogController.class);
+private static final Logger log = LoggerFactory.getLogger(Product.class);
 	
 	@Id
-	@GeneratedValue
-	private BigInteger id; 
+	private String id; 
 	
 	/**
 	 * 
@@ -36,13 +29,12 @@ public class Product implements Serializable {
 	}
 
     public Product(String pDisplayName,String pDescription,String pLongDescrtiption){
-	    //this.id=pId;
-    	this.setDisplayName(pDisplayName);
+	   	this.setDisplayName(pDisplayName);
 		this.setDescription(pDescription);
 		this.longDiscription=pLongDescrtiption;
 	 }
 
-    public Product(BigInteger  pId, String pDisplayName,String pDescription,String pLongDescrtiption){
+    public Product(String  pId, String pDisplayName,String pDescription,String pLongDescrtiption){
 	    this.id=pId;
     	this.setDisplayName(pDisplayName);
 		this.setDescription(pDescription);
@@ -107,18 +99,18 @@ public class Product implements Serializable {
 		this.longDiscription = longDiscription;
 	}
 	
-	/**
+/*	*//**
 	 * Getter For skuList
 	 * @return the skuList
-	 */
+	 *//*
 	public List<SKU> getSkuList() {
 		return skuList;
 	}
 
-	/**
+	*//**
 	 * Setter for the  skuList
 	 * @param skuList the skuList to set
-	 */
+	 *//*
 	public void setSkuList(List<SKU> skuList) {
 		this.skuList = skuList;
 	}
@@ -127,66 +119,66 @@ public class Product implements Serializable {
 	
 	private List<String> parentCategory;
  	
-	/**
+	*//**
 	 * Getter For parentCategory
 	 * @return the parentCategory
-	 */
+	 *//*
 	public List<String> getParentCategory() {
 		return parentCategory;
 	}
 
-	/**
+	*//**
 	 * Getter For productPrice
 	 * @return the productPrice
-	 */
+	 *//*
 	public Map<String, Price> getProductPrice() {
 		return productPrice;
 	}
 
-	/**
+	*//**
 	 * Getter For productInventory
 	 * @return the productInventory
-	 */
+	 *//*
 	public Map<String, Inventory> getProductInventory() {
 		return productInventory;
 	}
 
-	/**
+	*//**
 	 * Getter For brand
 	 * @return the brand
-	 */
+	 *//*
 	public Brand getBrand() {
 		return brand;
 	}
 
-	/**
+	*//**
 	 * Setter for the  parentCategory
 	 * @param parentCategory the parentCategory to set
-	 */
+	 *//*
 	public void setParentCategory(List<String> parentCategory) {
 		this.parentCategory = parentCategory;
 	}
 
-	/**
+	*//**
 	 * Setter for the  productPrice
 	 * @param productPrice the productPrice to set
-	 */
+	 *//*
 	public void setProductPrice(Map<String, Price> productPrice) {
 		this.productPrice = productPrice;
 	}
 
-	/**
+	*//**
 	 * Setter for the  productInventory
 	 * @param productInventory the productInventory to set
-	 */
+	 *//*
 	public void setProductInventory(Map<String, Inventory> productInventory) {
 		this.productInventory = productInventory;
 	}
 
-	/**
+	*//**
 	 * Setter for the  brand
 	 * @param brand the brand to set
-	 */
+	 *//*
 	public void setBrand(Brand brand) {
 		this.brand = brand;
 	}
@@ -199,7 +191,7 @@ public class Product implements Serializable {
 	
 	private Brand brand;
 	
-	
+*/	
 
 
 

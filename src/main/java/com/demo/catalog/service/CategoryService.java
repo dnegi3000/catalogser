@@ -22,7 +22,7 @@ public class CategoryService {
 	 */
      public Category  getCategory(String categoryId){
     	 
-    	return  categoryRepository.findOneById(categoryId);
+    	return  categoryRepository.findById(categoryId).orElse(null);
     	 
      }
 	

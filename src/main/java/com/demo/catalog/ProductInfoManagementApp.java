@@ -4,15 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.PropertySource;
 
-import com.demo.catalog.service.ProductService;
+//import com.demo.catalog.service.ProductService;
 
 @SpringBootApplication
-public class CatApplication implements CommandLineRunner{
+public class ProductInfoManagementApp implements CommandLineRunner{
 
 	public static void main(String[] args) {
-		SpringApplication.run(CatApplication.class, args);
+		SpringApplication.run(ProductInfoManagementApp.class, args);
 		System.out.println("Main Spring Boot Application booting ........................");
 	}
 	
@@ -35,6 +34,6 @@ public class CatApplication implements CommandLineRunner{
 //		
 		
 	}
-	@Autowired
-	private ProductService catalogService;
+//	@Autowired
+//	private ProductService catalogService;
 }

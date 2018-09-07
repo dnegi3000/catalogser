@@ -1,6 +1,5 @@
 package com.demo.catalog.controller;
 
-import javax.persistence.EntityExistsException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +14,7 @@ import com.demo.catalog.domain.Catalog;
 import com.demo.catalog.domain.Category;
 import com.demo.catalog.service.CatalogService;
 import com.demo.catalog.service.CategoryService;
+import com.mongodb.MongoException;
 
 @RestController
 public class CatalogController {
@@ -53,7 +53,7 @@ public class CatalogController {
 		Catalog newCatalog = null; 
 		if ( catalog != null )
 		{
-			throw new EntityExistsException("Entity of type requested with same id already exists");
+			throw new MongoException("Entity of type requested with same id already exists");
 			
 		}else {
 		
@@ -80,7 +80,7 @@ public class CatalogController {
 		Category newCategory = null; 
 		if ( category != null )
 		{
-			throw new EntityExistsException("Entity of type requested with same id already exists");
+			throw new MongoException("Entity of type requested with same id already exists");
 			
 		}else {
 		

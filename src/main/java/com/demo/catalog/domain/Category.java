@@ -3,12 +3,9 @@
  */
 package com.demo.catalog.domain;
 
-import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Map;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import org.springframework.data.annotation.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -27,7 +24,7 @@ public class Category   implements Serializable {
 	
 	
 	public Category(String pId,String pName,String pSite,String pCountry, String pLongDescrition,String pDescription){
-		this.Id=pId;
+		this.id=pId;
 		this.name= pName;
 		this.site = pSite;
 		this.country = pCountry;
@@ -37,8 +34,7 @@ public class Category   implements Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private String Id;
+	private String id;
 	
 	
 	private String name;
@@ -48,7 +44,7 @@ public class Category   implements Serializable {
 	 * @return the id
 	 */
 	public String getId() {
-		return Id;
+		return id;
 	}
 
 	/**
@@ -99,7 +95,7 @@ public class Category   implements Serializable {
 	 * @param id the id to set
 	 */
 	public void setId(String id) {
-		Id = id;
+		id = id;
 	}
 
 	/**
@@ -163,27 +159,27 @@ public class Category   implements Serializable {
 		this.catalog = catalog;
 	}
 	
-	/**
+/*	*//**
 	 * 
-	 */
+	 *//*
 	private Map media;
 
-	/**
+	*//**
 	 * Getter For media
 	 * @return the media
-	 */
+	 *//*
 	public Map getMedia() {
 		return media;
 	}
 
-	/**
+	*//**
 	 * Setter for the  media
 	 * @param media the media to set
-	 */
+	 *//*
 	public void setMedia(Map media) {
 		this.media = media;
 	}
-
+*/
 	
 	
 	

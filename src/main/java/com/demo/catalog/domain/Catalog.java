@@ -3,10 +3,7 @@ package com.demo.catalog.domain;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -24,7 +21,6 @@ public class Catalog implements Serializable {
 	// "com.demo.catalog.id.custom.CustomIDGenerator")
 	// @GeneratedValue(generator = "catalog_sequence_id")
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String id;
 
 	/**
@@ -92,42 +88,42 @@ public class Catalog implements Serializable {
 		return siteID;
 	}
 
-	/**
+/*	*//**
 	 * Getter For childCatalogs
 	 * 
 	 * @return the childCatalogs
-	 */
+	 *//*
 	public List<Catalog> getChildCatalogs() {
 		return childCatalogs;
 	}
 
-	/**
+	*//**
 	 * Getter For parentCatalog
 	 * 
 	 * @return the parentCatalog
-	 */
+	 *//*
 	public Catalog getParentCatalog() {
 		return parentCatalog;
 	}
 
-	/**
+	*//**
 	 * Getter For masterCatalog
 	 * 
 	 * @return the masterCatalog
-	 */
+	 *//*
 	public Boolean getMasterCatalog() {
 		return masterCatalog;
 	}
 
-	/**
+	*//**
 	 * Getter For childCatagories
 	 * 
 	 * @return the childCatagories
-	 */
+	 *//*
 	public List<Category> getChildCatagories() {
 		return childCatagories;
 	}
-
+*/
 	/**
 	 * Setter for the siteID
 	 * 
@@ -143,40 +139,40 @@ public class Catalog implements Serializable {
 	 * 
 	 * @param childCatalogs
 	 *            the childCatalogs to set
-	 */
+	 *//*
 	public void setChildCatalogs(List<Catalog> childCatalogs) {
 		this.childCatalogs = childCatalogs;
 	}
 
-	/**
+	*//**
 	 * Setter for the parentCatalog
 	 * 
 	 * @param parentCatalog
 	 *            the parentCatalog to set
-	 */
+	 *//*
 	public void setParentCatalog(Catalog parentCatalog) {
 		this.parentCatalog = parentCatalog;
 	}
-
+*/
 	/**
 	 * Setter for the masterCatalog
 	 * 
 	 * @param masterCatalog
 	 *            the masterCatalog to set
 	 */
-	public void setMasterCatalog(Boolean masterCatalog) {
+/*	public void setMasterCatalog(Boolean masterCatalog) {
 		this.masterCatalog = masterCatalog;
 	}
 
-	/**
+	*//**
 	 * Setter for the childCatagories
 	 * 
 	 * @param childCatagories
 	 *            the childCatagories to set
-	 */
+	 *//*
 	public void setChildCatagories(List<Category> childCatagories) {
 		this.childCatagories = childCatagories;
-	}
+	}*/
 	
 	public void setDescription(String description) {
 		this.description = description;
@@ -190,14 +186,14 @@ public class Catalog implements Serializable {
 		this.longDescription = longDescription;
 	}
 
-	private List<Catalog> childCatalogs;
+/*	private List<Catalog> childCatalogs;
 
 	private Catalog parentCatalog;
 
 	private Boolean masterCatalog;
 
 	private List<Category> childCatagories;
-	
+	*/
 	private String description;
 	
 	private String longDescription;

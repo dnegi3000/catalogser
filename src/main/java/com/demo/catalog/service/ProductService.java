@@ -22,9 +22,9 @@ public class ProductService {
 	 * 
 	 * @return
 	 */
-     public Product  getProduct(Long prodId){
+     public Product  getProduct(String prodId){
     	 
-    	return  prodRepository.findOneById(prodId);
+    	return  prodRepository.findById(prodId).orElse(null);
     	 
      }
 	

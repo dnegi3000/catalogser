@@ -2,10 +2,11 @@ package com.demo.catalog.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity(name="sku")
+
+@Document
 public class SKU implements Serializable{
 
 	/**
