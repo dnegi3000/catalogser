@@ -4,6 +4,7 @@
 package com.demo.catalog.domain;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 import org.springframework.data.annotation.Id;
 
@@ -23,11 +24,9 @@ public class Category   implements Serializable {
 	private static final long serialVersionUID = -665460085437812305L;
 	
 	
-	public Category(String pId,String pName,String pSite,String pCountry, String pLongDescrition,String pDescription){
+	public Category(String pId,String pName, String pLongDescrition,String pDescription){
 		this.id=pId;
 		this.name= pName;
-		this.site = pSite;
-		this.country = pCountry;
 		this.longDescrtion = pLongDescrition;
 		this.description = pDescription;
 		
@@ -35,7 +34,7 @@ public class Category   implements Serializable {
 
 	@Id
 	private String id;
-	
+
 	
 	private String name;
 	
@@ -55,12 +54,12 @@ public class Category   implements Serializable {
 		return name;
 	}
 	
-	private String site;
+	private List<String> site;
 	/**
 	 * Getter For site
 	 * @return the site
 	 */
-	public String getSite() {
+	public List<String> getSite() {
 		return site;
 	}
 
@@ -68,7 +67,7 @@ public class Category   implements Serializable {
 	 * Getter For country
 	 * @return the country
 	 */
-	public String getCountry() {
+	public List<String> getCountry() {
 		return country;
 	}
 	
@@ -110,17 +109,17 @@ public class Category   implements Serializable {
 	 * Setter for the  site
 	 * @param site the site to set
 	 */
-	public void setSite(String site) {
+	public void setSite(List<String> site) {
 		this.site = site;
 	}
 	
-	private String 	country;
+	private List<String> country;
 	
 	/**
 	 * Setter for the  country
 	 * @param country the country to set
 	 */
-	public void setCountry(String country) {
+	public void setCountry(List<String> country) {
 		this.country = country;
 	}
 	
@@ -159,27 +158,27 @@ public class Category   implements Serializable {
 		this.catalog = catalog;
 	}
 	
-/*	*//**
+	/**
 	 * 
-	 *//*
+	 */
 	private Map media;
 
-	*//**
+	/**
 	 * Getter For media
 	 * @return the media
-	 *//*
+	 */
 	public Map getMedia() {
 		return media;
 	}
 
-	*//**
+	/**
 	 * Setter for the  media
 	 * @param media the media to set
-	 *//*
+	 */
 	public void setMedia(Map media) {
 		this.media = media;
 	}
-*/
+
 	
 	
 	

@@ -12,14 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.catalog.domain.Catalog;
 import com.demo.catalog.domain.Category;
+import com.demo.catalog.domain.Product;
 import com.demo.catalog.service.CatalogService;
 import com.demo.catalog.service.CategoryService;
+import com.demo.catalog.service.ProductService;
 import com.mongodb.MongoException;
 
 @RestController
-public class CatalogController {
+@RequestMapping(value="/pim/")
+public class ProductInfoManagementController {
 
-	private static final Logger log = LoggerFactory.getLogger(CatalogController.class);
+	private static final Logger log = LoggerFactory.getLogger(ProductInfoManagementController.class);
 
 	private CatalogService catalogService;
 
@@ -37,14 +40,48 @@ public class CatalogController {
 		this.categoryService = pCategoryService;
 	}
 
+	private ProductService catService;
+
+	@Autowired
+	public void setCatSet(ProductService pCatService) {
+
+		this.catService = pCatService;
+	}
 	
+	/**
+	 * Create Product 
+	 * 
+	 * 
+	 * @param pProductDisplayName
+	 * @param pProductDescription
+	 * @param pLongDescription
+	 */
 	
+	@RequestMapping(value = "/createProduct", method = RequestMethod.POST)
+
+	public void createProuct(@RequestParam(name = "prodDisplayName") String pProductDisplayName,
+							 @RequestParam(name = "prodDescription") String pProductDescription,
+							 @RequestParam(name = "prodLongDescription") String pLongDescription
+							 ) {
+		log.info("Inside createProduct");
+		Product prod = new Product(pProductDisplayName, pProductDescription, pLongDescription);
+		catService.createProduct(prod);
+	}
+	
+	/**
+	 * 
+	 * @param pDisplayName
+	 * @param pDescription
+	 * @param pLongDescription
+	 * @param pId
+	 * @return
+	 */
 	@RequestMapping(value = "/createCatalog", method = RequestMethod.POST)
 	@CrossOrigin(origins="*",allowedHeaders="*")
-    public Catalog handleRequestCreateProuct(@RequestParam(name = "name") String pDisplayName,
+    public Catalog createCatalog(@RequestParam(name = "name") String pDisplayName,
 										  @RequestParam(name = "description") String pDescription,
 										  @RequestParam(name = "longDescription") String pLongDescription,
-										  @RequestParam(name = "id" ) String pId ) {
+										  @RequestParam(name = "id" ) String pId ){
 		log.info("Inside /createCatalog");
 		log.info("Param value: name -->" + pDisplayName);
 		log.info("Param value: description -->" + pDescription);
@@ -57,7 +94,7 @@ public class CatalogController {
 			
 		}else {
 		
-			newCatalog = new Catalog(pDisplayName, pDescription, pLongDescription,pId);
+			newCatalog = new Catalog(pDisplayName,pId);
 		return catalogService.createCatalog(newCatalog);
 		}
 		
@@ -84,12 +121,12 @@ public class CatalogController {
 			
 		}else {
 		
-			newCategory = new Category(pId,pName,site,pCountry, pLongDescrition,pDescription);
+			newCategory = new Category(pId,pName, pLongDescrition,pDescription);
 		return categoryService.createCategory(newCategory);
 		}
 		
 	}
-
+	
 }
 
 

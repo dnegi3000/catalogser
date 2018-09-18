@@ -1,6 +1,7 @@
 package com.demo.catalog.domain;
 
 import java.io.Serializable;
+import java.util.Map;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -33,6 +34,17 @@ public class SKU implements Serializable{
 	public void setDispalyName(String dispalyName) {
 		this.dispalyName = dispalyName;
 	}
+	
+	private Map<String,Object> attributes;
+
+	public Map<String, Object> getAttributes() {
+		return attributes;
+	}
+
+	public void setAttributes(Map<String, Object> attributes) {
+		this.attributes = attributes;
+	} 
+	
 	
 	
 	
